@@ -2,6 +2,8 @@ import time from "./time"
 import constants from "./constants"
 import type { Peg, Step } from "./types"
 
+const { PEG_CONTAINER, EXTRA_PEG_HEIGHT, DISK_CONTAINER } = constants
+
 function toh(noOfDisks: number) {
   const steps: Step[] = []
   function recurse(n: number, from: number, to: number, aux: number) {
@@ -50,7 +52,7 @@ function setPegHeight(
   for (const peg of pegs) {
     peg.el.style.setProperty(
       "--height",
-      `${diskRect.height * noOfDisks + constants.EXTRA_PEG_HEIGHT}px`
+      `${diskRect.height * noOfDisks + EXTRA_PEG_HEIGHT}px`
     )
   }
 }
@@ -58,7 +60,7 @@ function setPegHeight(
 function createDisks(noOfDisks: number, pegs: [Peg, Peg, Peg]) {
   return new Array(noOfDisks).fill(null).map((_, i) => {
     const disk = document.createElement("div")
-    constants.DISK_CONTAINER.append(disk)
+    DISK_CONTAINER.append(disk)
     pegs[0].disks.push(disk)
     disk.innerHTML = (i + 1).toString()
 
@@ -66,13 +68,13 @@ function createDisks(noOfDisks: number, pegs: [Peg, Peg, Peg]) {
     disk.classList.add("disk")
     disk.style.setProperty("--color", randomColor())
 
-    let width = constants.PEG_CONTAINER.getBoundingClientRect().width / 10
+    let width = PEG_CONTAINER.getBoundingClientRect().width / 10
     if (width > 50) width = 50
 
     disk.style.setProperty("--width", `${width * (i + 2) * 0.4}px`)
     disk.style.setProperty(
       "--left",
-      `${calcDistance(constants.PEG_CONTAINER, pegs[0].el)}px`
+      `${calcDistance(PEG_CONTAINER, pegs[0].el)}px`
     )
     disk.style.setProperty(
       "--bottom",

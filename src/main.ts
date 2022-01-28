@@ -24,7 +24,7 @@ NEXT.addEventListener("click", async () => {
   disableButtons(true, true)
   if (await animatedSteps.next()) {
     disableButtons(false, false)
-  } else {
+  } else if (!stopped) {
     disableButtons(true, true)
   }
 })
