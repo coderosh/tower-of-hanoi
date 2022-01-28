@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffa07a;
+}
+
+.container {
+  margin: auto;
+  max-width: 1200px;
+  width: 95%;
+  --toh-color: wheat;
+  --shadow: 20px 10px #0000002a;
+}
+
+.toh-container {
+  position: relative;
+  background: var(--toh-color);
+  padding-top: 100px;
+  font-family: monospace;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  border: 2px solid black;
+}
+
+.pegs {
+  display: flex;
+  justify-content: space-around;
+  min-height: 50vh;
+  align-items: flex-end;
+}
+
+.disk {
+  position: absolute;
+  width: var(--width);
+  height: 20px;
+  background: var(--color);
+  left: var(--left);
+  transition: var(--time) linear;
+  bottom: var(--bottom);
+  border-radius: 5px;
+  transform: translateX(-50%);
+  text-align: center;
+  border: 1px solid black;
+}
+
+.peg {
+  --height: 30px;
+  background: #7e4b4b;
+  width: 15px;
+  height: var(--height);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.settings {
+  background: var(--toh-color);
+  padding: 10px 10px;
+  box-shadow: var(--shadow);
+  margin-top: 20px;
+  border: 2px solid black;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.group {
+  flex: 1 1 200px;
+  display: inline-flex;
+  border: 1px solid #000000a6;
+  padding: 5px 10px;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 2px 2px 2px 1px #00000052;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: max-content;
+  flex: 1;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  appearance: none;
+  background-color: lightcoral;
+  height: 10px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  width: 10px;
+  appearance: none;
+  height: 10px;
+  cursor: ew-resize;
+  background: wheat;
+  border-radius: 20px;
+  box-shadow: 0 0 0 3px black;
+}
+
+select {
+  flex: 1;
+  padding: 5px;
+}
+
+button {
+  flex: 1;
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px 0;
+  cursor: pointer;
+}
+
+button:not(:disabled):hover {
+  background: #ffb1b1;
+}
