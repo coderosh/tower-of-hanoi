@@ -117,6 +117,14 @@ button:not(:disabled):hover {
   background: #ffb1b1;
 }
 
+.steps-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 20px;
+  font-size: 18px;
+}
+
 /* github corner */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
